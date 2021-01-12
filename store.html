@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Bio Store</title>
+    <!--   bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!-- prototype y scriptaculous -->
+    <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+    <script src="http://script.aculo.us/scriptaculous.js"></script>    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="index.js"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- estilos css -->
+    <link rel="stylesheet" href="estilos.css">
+    
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+                    <!-- nav bar -->
+            <nav class="navbar fixed-top navbar-light navbar-expand-sm navbar-style">
+                <a class="navbar-brand font-weight-bold titulo-navbar"><img src="img/logo2.jpg"  class="d-inline-block align-top logo-bio"></a><span class="titulo-navbar">Mini Bio Store</span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barranav" aria-controls="navbarTogglerDemo01" aria-expanded="false">
+                    <span class="navbar-toggler-icon float-right"></span>
+                </button>
+           <!--  link items collapse -->
+                <div class="collapse navbar-collapse" id="barranav">
+                    <ul class="navbar-nav ml-auto lista-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+                        <li class="nav-item"><a class="nav-link" href="explicacion.html">Explicación</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-fluid main-contenedor">  <!--  contenedor principal -->
+            <!-- store section -->    
+            <div class="row store-seccion">
+                    
+                <!-- contenedor elementos draggables -->
+                <div id="" class="cont-productos col-md-3">
+                    <div id="capa0" class="capamover"><img src="img/pr1.jpg" class="capamover capamover-efect" onmouseover="describe_producto(0)" onmouseout="borra_descripcion()"></div>
+                    <div id="capa1" class="capamover"><img src="img/pr2.jpg" class="capamover capamover-efect" onmouseover="describe_producto(1)" onmouseout="borra_descripcion()"></div>
+                    <div id="capa2" class="capamover"><img src="img/pr3.jpg" class="capamover capamover-efect" onmouseover="describe_producto(2)" onmouseout="borra_descripcion()"></div>
+                    <div id="capa3" class="capamover"><img src="img/pr4.jpg" class="capamover capamover-efect" onmouseover="describe_producto(3)" onmouseout="borra_descripcion()"></div>
+                    <div id="capa4" class="capamover"><img src="img/pr5.jpg" class="capamover capamover-efect" onmouseover="describe_producto(4)" onmouseout="borra_descripcion()"></div>
+                    <div id="capa5" class="capamover"><img src="img/pr6.jpg" class="capamover capamover-efect" onmouseover="describe_producto(5)" onmouseout="borra_descripcion()"></div>
+                    <p class="receptor m1"> <small><u>Clickea</u> sobre un producto y arrastralo hacia la canasta!!&nbsp;&nbsp;&nbsp;</small><i class="fas fa-arrow-circle-right"></i></p>
+                </div>
+
+                <!-- descripcion de producto -->
+                <div id="d-p" class="col-md-3">
+                    <br><br>
+                    <h5 id="d-p-n" class="receptor"></h5>
+                    <p class="receptor" id="d-p-d"> <small>Posiciona el mouse sobre un producto para ver detalles</small></p>
+                    <p class="receptor" id="d-p-p"></p>
+                    <br>
+                </div>
+
+                <div class="col-md-6">    <!-- cesta de compras -->
+                    <div id="receptor"><img class="cesta box-shadow" src="img/cesta1.jpg"></div>
+                    <br>
+                    
+                    <div id="mi-compra"><h4>Tus productos:</h4></div><br>
+                    <div class="total"><h4 id="total">Total:00.00&euro;</h4></div>
+                    <a href="#formulario"><input type="button" class="btn btn-primary" id="B0" value="Procesar pedido"></a>
+                    
+                    
+                </div>
+            </div> 
+            <br><br><br>
+            <!--  formulario de pago -->
+            <div class="row formulario" id="formulario">
+                <div class="col-md-6 offset-md-3">
+                    <form>
+                        <label for="nombre">Nombre y Apellido:</label>
+                        <input id="inputName" type="text" name="nombre" class="input" placeholder="Nombre y Apellido" onblur="verifica_nombre()"><br><br>
+
+                        <label for="calle">Dirección:</label>
+                        <input id="inputCalle" type="text" name="calle" class="input" placeholder="Calle" onblur="verifica_calle()">
+                        <br><br>
+
+                        <label for="numero">Numero:</label>
+                        <input type="number" class="input"><br><br>
+                            
+                        <input type="radio" name="c1" id="c1" onclick="desplega_capa(1), oculta_capa(2)">  Entrega a domicilio
+                        <input type="radio" name="c1" id="c2" onclick="desplega_capa(2), oculta_capa(1)" >  Retiro en local
+                        <br><br>
+                        <!--  desplegable opcion entrega a domicilio -->
+                        <div id="entrega-dom" style="display:none;">
+                            <label for="fecha">Fecha de entrega:</label>
+                            <input type="date" name="fecha" id="fecha" class="input"><br>
+                                
+                            <label for="select">Horario de entrega:</label>
+                            <select name="horario" id="horario" class="input">
+                                    <option value="0">9-10hs</option>
+                                    <option value="1">10-11hs</option>
+                                    <option value="2">17-18hs</option>
+                                    <option value="3">18-19hs</option>
+                            </select><br><br>
+                            <input type="button" class="btn btn-primary" value="Enviar orden">
+                        </div>
+                        <!-- desplegable opcion retiro en local -->
+                        <div id="retira" style="display: none;">
+                            <h4>Te esperamos en nuestro local!!</h4><br>
+                            <ul>
+                                <li>Dirección: Guillem Tell 14.</li>
+                                <li>Horarios: de 9 a 11 y de 17 a 19hs.</li>
+                                <li>Dudas? Llamanos! tel.:455-5555</li>
+                            </ul>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.668267335839!2d2.146768515051659!3d41.40301007926277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2a196f8fca5%3A0x30ea844ce861b0c0!2sCarrer%20de%20Guillem%20Tell%2C%2014%2C%2008006%20Barcelona!5e0!3m2!1ses!2ses!4v1610198594605!5m2!1ses!2ses" width="300" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </form>
+                </div>
+            </div>              
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer">
+            <p>Portfolio web creado por Yago Agüero </p>
+            <a href="https://www.linkedin.com/in/yagoaguero-88"><i class="fab fa-linkedin icon"></i></a>
+            </div>
+    </footer>
+    
+    <script>
+        //Definimos las 4 capas de tipo Draggable
+        new Draggable('capa0',{revert:true});
+        new Draggable('capa1',{revert:true});
+        new Draggable('capa2',{revert:true});
+        new Draggable('capa3',{revert:true});
+        new Draggable('capa4',{revert:true});
+        new Draggable('capa5',{revert:true});
+       
+        //Definimos la receptora
+        Droppables.add('receptor', {
+            accept: 'capamover',
+            hoverclass: 'cesta1',
+            onDrop: function(arrastrado, receptor, evento) {
+                agrega_producto(arrastrado.id);
+            }
+        });
+    </script>    
+</body>
+</html>
