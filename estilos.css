@@ -7,8 +7,6 @@
 
 
 
-
-@media 
 /* estilos body */
 body{
     background-color: lightgray;
@@ -18,10 +16,6 @@ body{
     margin-top: 100px;
     margin-bottom: 50px;
 }
-
-
-
-
 
 
 
@@ -124,7 +118,6 @@ body{
 
 
 /* seccion store */
-
 
 
 
@@ -274,6 +267,131 @@ footer p{
 footer a{
     font-size: 50px;
 }
+
+
+
+@media all and (min-width:575px){
+    
+/*textos descriptivos hidden para mobile*/
+.DH{
+    display: none;
+}
+}
+
+
+
+
+
+@media all and (max-width:360px){
+
+
+
+    /* navbar */
+    
+    /* logo navbar izq */
+    .logo-bio{
+        height: 30px;
+        width: 30px;
+    }
+    
+    
+    /* titulo ppal navbar */
+    .titulo-navbar{
+        font-size: 25px;
+        font-family: 'East Sea Dokdo', cursive;
+    }
+    
+    
+    /* lista desplegable */
+    .lista-nav{
+        text-align: right;
+    }
+    
+    
+    /* barra navbar en gral */
+    .navbar-style{
+        background-color: white;
+    }
+    
+    
+    
+    
+    /* seccion store */
+    
+    
+    
+    
+    
+    /* store seccion contenedor */
+    .store-seccion{
+        padding-top: 110pt;
+    }
+    
+    /* contenedor con imagenes de los productos */
+    .cont-productos{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+    
+    
+    }
+    
+    /* texto hidden descriptivo para mobile*/
+    .DH{
+        width: 150px;
+        height: auto;
+        text-align: center;
+        padding-top: 30px;
+        display: block;
+    }
+    
+    
+    
+    /* efecto scale hover para los artículos */
+    .capamover-efect{
+        height: auto;
+        width: 130px; 
+        cursor: pointer;
+    }
+    
+    /* texto debajo de productos */
+    .m1{
+        display: none;
+    }
+    /* estilos para la cesta de compras */
+    .cesta{
+        display: none;
+    }    
+    /* contenedor de detalles de lista compra */
+    .listacompra{
+        margin-top: 10px;
+    }
+    
+    /*contenedor de los p q reciben info de productos*/
+    #d-p{
+        display: none;
+    }
+    
+    /* estilos para botones creados con JS en lista de compras */
+    #B0,#B1,#B2,#B3,#B4,#B5{
+        float: right;
+    
+    }
+    
+    /* estilo para los contenedores de producto agregado a lista de compras */
+     #producto0,#producto1,#producto2,#producto3,#producto4,#producto5{
+         margin:10px;
+         height: 30pt;
+    
+     }
+     /*checkboxes que desplegan capas*/
+    .lineaForm{
+        margin: 5px;
+        width: 100%; 
+    }
+    }
+
 
 
 

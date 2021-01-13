@@ -10,22 +10,76 @@ const productos = [
 
 
 
-//función que muestra la información de cada producto
-function describe_producto(num){
-    //asigna propiedades del producto desde el array "productos"
-    //y lo asigna a los contenedores correspondientes en el html
-    $('d-p-n').innerHTML=productos[num].nombre;
-    $('d-p-d').innerHTML=productos[num].descripcion;
-    $('d-p-p').innerHTML=productos[num].precio.toFixed(2)+"&euro; el Kg";
 
+//constante que almacena todos los elementos con la clase capamover
+const productosImag = document.querySelectorAll('.capamover');
+
+const botonesAgrega = document.querySelectorAll('.botonAgrega');
+
+//ciclo forEach que crea event listeners para cada elemento en 
+//almacenado en productoImag
+productosImag.forEach(producto => {
+    producto.addEventListener('mouseover',()=> {
+        describe_producto(producto.id);
+    });
+
+    producto.addEventListener('mouseout', ()=>{
+        borra_descripcion();
+    });
+})
+
+
+botonesAgrega.forEach(boton => {
+    boton.addEventListener('touchend', ()=>{
+        agrega_producto(boton.id);
+    })
+});
+
+
+
+//Definimos elementos de tipo Draggable (productos)
+new Draggable('capa0',{revert:true});
+new Draggable('capa1',{revert:true});
+new Draggable('capa2',{revert:true});
+new Draggable('capa3',{revert:true});
+new Draggable('capa4',{revert:true});
+new Draggable('capa5',{revert:true}); 
+
+ //Definimos capa receptora (cesta de compra)
+Droppables.add('receptor', {
+    accept: 'capamover',
+    hoverclass: 'cesta1',
+    onDrop: function(arrastrado, receptor, evento) {
+        //al hacer drop de un producto sobre la cesta llamamos
+        //a la función que agregará la información de dicho 
+        //priducto a nuestra lista de compra
+        agrega_producto(arrastrado.id);
+    }
+}); 
+
+function describe_producto(num){
+    //función que mostrará la descripcion del producto
+
+    //extraemos el ultimo numero dentro del id del elemento
+    let i = parseInt(num.substr(4,5));
+    //utilizamos este numero como index para acceder al array con productos
+    //y pasamos los datos a los contenedores que los mostrarán
+    $('d-p-n').innerHTML=productos[i].nombre;
+    $('d-p-d').innerHTML=productos[i].descripcion;
+    $('d-p-p').innerHTML=productos[i].precio.toFixed(2)+"&euro; el Kg";
 };
 
-//función que borra el contenido descriptivo del producto
 function borra_descripcion(){
+    //función que devolverá el texto con indicaciones al usuario
+
+    //agregamos el texto indicativo en el contenedor
+    //central y borramos el contenido de los demás contenedores
     $('d-p-n').innerHTML=" ";
-    $('d-p-d').innerHTML="<small>Posiciona el mouse sobre el producto para ver detalles</small>";
+    $('d-p-d').innerHTML="<small>Posiciona el mouse sobre un producto para ver detalles</small>";
     $('d-p-p').innerHTML=" ";
 };
+
+
 
 //función que agrega productos a la cesta de compra
 function agrega_producto(id){
