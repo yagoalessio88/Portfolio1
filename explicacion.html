@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-Bio Store</title>
-    <!--   bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+   
     <!-- prototype y scriptaculous -->
     <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
     <script src="http://script.aculo.us/scriptaculous.js"></script>    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    
   
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -21,41 +18,60 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-                    <!-- nav bar -->
-            <nav class="navbar fixed-top navbar-light navbar-expand-sm navbar-style">
-                <a class="navbar-brand font-weight-bold titulo-navbar"><img src="img/logo2.jpg"  class="d-inline-block align-top logo-bio"></a><span class="titulo-navbar">Mini Bio Store</span>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barranav" aria-controls="navbarTogglerDemo01" aria-expanded="false">
-                    <span class="navbar-toggler-icon float-right"></span>
-                </button>
-           <!--  link items collapse -->
-                <div class="collapse navbar-collapse" id="barranav">
-                    <ul class="navbar-nav ml-auto lista-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
-                        <li class="nav-item"><a class="nav-link" href="explicacion.html">Explicación</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+       <!-- navbar -->
+       <div class="menu-bar-pc">
+            
+        <a href="#" class="logo">
+            <img src="./img/logo2.jpg">
+        </a>
+        <h4 class="titulo-logo">Mini Bio Store</h4>
+    
+
+    <nav class="menu-principal">
+        <a href="index.html">Inicio</a>
+        <a href="store.html">Store</a>
+        <a href="explicacion.html">Explicación</a>
+    </nav>
+</div>
+
+<div class="menu-bar-movil" >
+    <a href="#" class="logo">
+        <img src="./img/logo2.jpg">
+    </a>
+    <h4 class="titulo-logo">Mini Bio Store</h4>
+    
+
+    <div class="burger-menu" id="burger_menu">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+
+    <div class="slideMenu" id="slideMenu">
+        <nav class="menu-principal">
+            <a href="index.html">Inicio</a>
+            <a href="store.html">Store</a>
+            <a href="explicacion.html">Explicación</a>
+        </nav>
+    </div>
+
+</div>
     </header>
 
     <main>
-        <div class="container-fluid main-contenedor">  <!--  contenedor principal -->
-            <!-- store section -->    
-            <div class="row formulario">
-                <div class="col-md-3 offset-md-4 formulario">
+           
+            <div>
+                <div class="explicacion">
                     <h4 class="titulo-expl">Selecciona tu idioma</h4>
-                    <input class="btn btn-primary boton3" type="button" value="Castellano" onclick="desplega_capa(3), oculta_capa(4)">
-                    <input class="btn btn-primary boton4" type="button" value="Inglés" onclick="desplega_capa(4), oculta_capa(3)">
+                    <input type="button" value="Castellano" onclick="desplega_capa(3), oculta_capa(4)">
+                    <input type="button" value="Inglés" onclick="desplega_capa(4), oculta_capa(3)">
                 </div>
 
                 <!-- tarjeta explicacion castellano -->
-                <div id="expl1" class="col-md-6 offset-md-3" style="display: none;">
-                    <div class="card box-shadow">
-                        <img class="card-img-top foto1" src="img/fotopr1.jpg">
-                        <div class="card-header"><h4>Bienvenido!</h4></div>
-                        <div class="card-body"><p>Mi nombre es Yago Agüero y esta es mi primer página portfolio.
+                <div id="expl1" style="display: none;">
+                    <div class="tarjeta">
+                        <img class="tarjeta-pic" src="img/fotopr1.jpg">
+                            <div class="tarjeta-body">
+                            <h4>Bienvenido!</h4>
+                            <p>Mi nombre es Yago Agüero y esta es mi primer página portfolio.
                             En su implementación se han utilizado las siguientes herramientas y lenguajes:
                             <h5>Maquetación: Html5</h5>
                             <h5>Estilos: CSS3</h5>
@@ -63,28 +79,23 @@
                                 <li>Efecto Hover en imágenes con transition.</li>
                                 <li>Hover cursor pointer en imágenes.</li>
                                 <li>Ajustes de colores, paddings, márgenes y tamaños.</li>
-                                <li>Media queries para acultar/mostrar elementos para versión mobile</li>
+                                <li>Media queries para acultar/mostrar elementos para versión mobile.</li>
                             </ul></p>
-                            <h5>Bootstrap 4.1.1</h5>
+                            
+                               
+                            <h5>Programación: JavaScript </h5>
                             <p><ul>
-                                <li>Nav bar.</li>
-                                <li>Contenedores con grilla responsive.</li>
-                                <li>Clase con estilos para botones.</li>
-                                <li>Clase para tarjetas.</li>
-                                <li>Clase contenedor jumbotrón para secciones.</li>
-                            </ul></p>
-                            <h5>Programación: JavaScript (con prototype y scriptaculous)</h5>
-                            <p><ul>
+                                <li>Animación para navbar.</li>
                                 <li>Manipulación de información de productos.</li>
                                 <li>Cálculo de totales de compra.</li>
                                 <li>Validación de inputs de formularios.</li>
                                 <li>Efecto drag and drop para agregar productos a cesta de compras.</li>
                                 <li>Efecto slide down para mostrar capas ocultas.</li>
                                 <li>Acceder a propiedades Css a través de DOM para ocultar capas.</li>
-                                <li>Event listeners para botones de compra en versión mobile</li>
+                                <li>Event listeners para botones de compra en versión mobile.</li>
                             </ul></p>
                         </div>
-                        <div class="card-footer">
+                        <div class="tarjeta-footer">
                             <p><small>Visita mi perfil de linkedin</small></p>
                             <a href="https://www.linkedin.com/in/yagoaguero-88/"><i class="fab fa-linkedin-in icono1"></i></a>
                         </div>
@@ -93,30 +104,25 @@
 
                     
                 <!-- tarjeta explicación ingles -->
-                <div id="expl2" class="col-md-6 offset-md-3" style="display: none;">
-                    <div class="card box-shadow">
-                        <img class="card-img-top foto1" src="img/fotopr1.jpg">
-                        <div class="card-header"><h4>Welcome!</h4></div>
-                        <div class="card-body"><p>Hi! Mi name is Yago Agüero and this is my first portfolio website!
-                            The following tools and programing languages have been used on its implementation:</p>
+                <div id="expl2" style="display: none;">
+                    <div class="tarjeta">
+                        <img class="tarjeta-pic" src="img/fotopr1.jpg">
+                        <div class="tarjeta-body">
+                            <h4>Welcome!</h4>
+                            <p>Hi! Mi name is Yago Agüero and this is my first portfolio website!
+                            I've used the following tools and programing languages on its implementation:</p>
                             <h5>Structure: Html5</h5>
                             <h5>Styling: CSS3</h5>
                             <p><ul>
                                 <li>Scale hover effect on images with transition.</li>
                                 <li>Hover cursor pointer for images and buttons.</li>
                                 <li>Colors, paddings, margins and sizing adjustments.</li>
-                                <li>Hide/show mobile version elements trhough media queries adjustements.</li>
+                                <li>Hide/show elements trhough media queries adjustements for mobile version.</li>
                             </ul></p>
-                            <h5>Bootstrap 4.1.1</h5>
+                           
+                            <h5>Programming: JavaScript</h5>
                             <p><ul>
-                                <li>Nav bar.</li>
-                                <li>Responsive grid containers.</li>
-                                <li>Button's styling class.</li>
-                                <li>Card's styling class.</li>
-                                <li>Jumbotron container class.</li>
-                            </ul></p>
-                            <h5>Programming: JavaScript (prototype and scriptaculous)</h5>
-                            <p><ul>
+                                <li>Navbar animation.</li>
                                 <li>Products data handling.</li>
                                 <li>Math operations.</li>
                                 <li>User's input validation on form section.</li>
@@ -126,21 +132,20 @@
                                 <li>Event listeners on buttons for mobile version.</li>
                             </ul></p>
                         </div>    
-                        <div class="card-footer">
-                            <p><small>Thanks for coming! Check out my linkedin profile!</small></p>
+                        <div class="tarjeta-footer">
+                            <p><small>Thanks for your visit! Check out my linkedin profile!</small></p>
                             <a href="https://www.linkedin.com/in/yagoaguero-88/"><i class="fab fa-linkedin-in icono1"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        
     </main>
 
     <footer>
-        <div class="container footer">
-            <p>Portfolio web creado por Yago Agüero </p>
-            <a href="https://www.linkedin.com/in/yagoaguero-88"><i class="fab fa-linkedin icon"></i></a>
-            </div>
+        <p>Portfolio web creado por Yago Agüero </p>
+        <a href="https://www.linkedin.com/in/yagoaguero-88"><i class="fab fa-linkedin icon"></i></a>
+            
     </footer>
     <script type="text/javascript" src="js/form.js"></script>
 </body>

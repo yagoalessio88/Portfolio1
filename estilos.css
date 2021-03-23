@@ -1,397 +1,525 @@
-
 /* fuentes */
 
 /* fuente titulo principal en navbar */
-@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
 
-
-
-/* estilos body */
-body{
-    background-color: lightgray;
+/* propiedades borderbox generales*/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.main{
-    margin-top: 100px;
-    margin-bottom: 50px;
+/* body */
+
+body {
+  background-color: rgb(235, 235, 235);
+  /*  font-family: 'Yusei Magic', sans-serif; */
+  color: rgb(61, 61, 61);
+  font-family: "Maven Pro", sans-serif;
+  padding: 5.875rem 2px 0 0;
+}
+
+/*********************************NAV BAR ***************************/
+
+.menu-bar-pc {
+  background-color: white;
+  display: none;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5.875rem;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  padding: 0 2.25rem;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+.menu-principal a {
+  text-decoration: none;
+  color: rgb(29, 28, 28);
+  margin: 0 5pt;
+  transition: all 0.2s ease-in-out;
+  padding-bottom: 15px;
+  border-bottom: 3px solid white;
+}
+
+.menu-principal a:hover {
+  color: rgb(112, 112, 112);
+  border-bottom: 3px solid rgb(172, 170, 170);
+}
+
+.menu-bar-movil {
+  background-color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 5.875rem;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.burguer-menu {
+  cursor: pointer;
+  font-size: 2.18rem;
+  padding-right: 30px;
+}
+
+i {
+  cursor: pointer;
+}
+
+.slideMenu {
+  position: fixed;
+  top: 5.875rem;
+  background-color: white;
+  text-align: center;
+  width: 50%;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  left: -80%;
+}
+
+.slideMenu a {
+  padding: 10px;
+  display: block;
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.active {
+  left: 0;
+}
+
+/*imagen logo*/
+.logo > img {
+  height: 30pt;
+  width: auto;
+  cursor: default;
+}
+
+/* titulo*/
+.titulo-logo {
+  font-family: "East Sea Dokdo", cursive;
+  font-size: 30pt;
+}
+
+/*********************************** PAGINA DESCRIPCION ********************/
+
+/* contenedor ppal */
+.cont-descripcion {
+  background-image: url("./img/fondo4.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 200px;
+  min-height: 600px;
+}
+
+/* contenedor para opacity fondo descripcion */
+.opacity {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(238, 235, 235, 30%);
+  position: absolute;
+  z-index: 1;
+}
+
+/* seccion descripcion */
+
+.descripcion {
+  margin: 0 10%;
+  width: 80%;
+  color: #000000;
+  position: absolute;
+}
+
+.titulo-descripcion {
+  text-align: center;
+  margin-bottom: 80px;
+  padding-top: 80px;
+  font-size: 30pt;
+}
+
+.texto-descripcion {
+  font-size: 15pt;
+}
+
+/*********************************  SECCION REVIEWS ********************/
+
+.cont-cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 50px;
+}
+
+.card {
+  background-color: honeydew;
+  width: 60%;
+  max-width: 200px;
+  margin: 0 auto 100px auto;
+  height: auto;
+  min-height: 250px;
+}
+
+.profilepic {
+  height: 40%;
+  width: 50%;
+  margin-left: 25%;
+  box-shadow: 3px 3px 3px rgb(194, 189, 189);
+}
+
+.card-body {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.card-body h4 {
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-bottom: 0.1px solid rgb(126, 125, 125);
+}
+
+.card-body p,
+li {
+  font-size: 0.625rem;
+  margin-bottom: 10px;
+}
+
+/* color para estrellas puntuación */
+.e1 {
+  color: yellow;
+}
+
+/*********************************** SECCION STORE  ******************/
+
+/* contenedor ppal*/
+.contenedor {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+/* cesta de compras*/
+
+.cont-productos {
+  width: 100%;
+  padding-left: 25%;
+}
+
+/* imagenes productos*/
+.capamover-efect {
+  height: 100px;
+  width: auto;
+}
+
+.cont-cesta {
+  width: 100%;
+  padding-left: 25%;
+}
+
+.cesta > img {
+  height: 200px;
+  width: 200px;
+}
+
+.cont-productos > p {
+  display: none;
+}
+
+/* contenedor con detalles de producto */
+/* oculto para mobile*/
+.contenedor-descripcion {
+  display: none;
+}
+
+/* imagen cesta (droppable) */
+/* oculto para mobile*/
+#receptor {
+  display: none;
+}
+
+/* contenedores con detalle de compra */
+/* creados con JavaScript */
+#producto0,
+#producto1,
+#producto2,
+#producto3,
+#producto4,
+#producto5 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/*********************************** FORMULARIO *******************************/
+
+form {
+  padding: 0 25%;
+  width: 100%;
+  margin-top: 100pt;
+}
+
+input {
+  background-color: rgb(231, 231, 231);
+  height: 20pt;
+  width: 100%;
+  box-shadow: 6px 6px 6px rgb(194, 194, 194);
+  border: none;
+  margin: 15pt 0;
+}
+
+select {
+  background-color: rgb(231, 231, 231);
+  height: 20pt;
+  width: 100%;
+  box-shadow: 6px 6px 6px rgb(218, 218, 218);
+  border: none;
+}
+
+input[type="radio"] {
+  background-color: rgb(231, 231, 231);
+  height: 20pt;
+  width: 20%;
+  box-shadow: 6px 6px 6px rgb(194, 194, 194);
+  border: none;
+  margin: 15pt 0;
+}
+
+input[type="button"] {
+  max-width: 100px;
+  color: rgb(209, 209, 209);
+  background-color: rgb(36, 36, 136);
+  border-radius: 10px;
+  height: 30pt;
+  border: 0.5px solid rgb(150, 150, 150);
+  box-shadow: 6px 6px 6px rgb(158, 158, 158);
+  cursor: pointer;
+}
+
+/* color rojo para botones eliminar */
+.rojo {
+  background-color: rgb(212, 17, 17) !important;
+  float: right;
+}
+
+.rojo:hover {
+  background-color: rgb(212, 92, 92) !important;
+}
+
+input[type="button"]:hover {
+  cursor: pointer;
+  background-color: rgb(115, 115, 252);
+}
+
+/***************************************** EXPLICACION ********************/
+
+.explicacion {
+  width: 80%;
+  margin: 40vh auto 20vh auto;
+  text-align: center;
 }
 
 
-
-/* navbar */
-
-
-
-
-
-
-/* logo navbar izq */
-.logo-bio{
-    height: 40pt;
-    width: 40pt;
-    margin-right: 35pt;
+.tarjeta {
+  background-color: honeydew;
+  width: 70%;
+  max-width: 600px;
+  margin: 0 auto 100px auto;
+  padding: 2rem .5rem 0 .5rem  ; 
 }
 
-
-/* titulo ppal navbar */
-.titulo-navbar{
-    font-size: 30pt;
-    font-family: 'East Sea Dokdo', cursive;
+.tarjeta-pic {
+  height: 50%;
+  width: 50%;
+  margin-left: 25%;
 }
 
-
-/* lista desplegable */
-.lista-nav{
-    text-align: right;
+.tarjeta-body {
+  padding-top: 20px;
 }
 
-
-/* barra navbar en gral */
-.navbar-style{
-    background-color: white;
+.tarjeta-body h4, h5 {
+  padding-bottom: 30px;
+  padding-top: 20px;
+  border-bottom: 0.1px solid rgb(126, 125, 125);
+  text-align: center;
 }
 
-
-
-
-/* seccion tarjetas  */
-
-
-
-
-
-
-
-/* sombra para cajas */ 
-.box-shadow{
-    box-shadow:5px 5px 5px 5px rgb(161, 161, 161) ;
-}
-
-/* titulo en seccion descripción */
-.titulo-descripcion{
-    margin-top: 20pt;
-    margin-bottom: 60pt;
-    text-align: center;
-}
-/* texto en descripción */
-.texto-descripción{
-    font-size: 12pt;
-    margin-top: 20pt;
-    margin-bottom: 40pt;
-}
-/* cursor pointer para enlace en texto descripción */
-.texto-descripcion a:hover{
-    cursor: pointer;
-}
-/* posicionamiento para el carrousel de tarjetas*/
-.reviews{
-    margin-top: 20pt;
-}
-/* tamaño para foto de ususarios en tarjetas */
-.profilepic{
-    height: 170px;
-    width: auto;
-}
-.tarjetas{
-    height: 200px;
-}
-.card-body i:hover{
-    cursor: pointer;
-}
-.card{
-    border: 1px solid rgb(145, 145, 145);
-    box-shadow: 2px 2px 5px #848484;
-}
-/* relleno para estrellas de puntuación */
-.e1{
-    color: yellow;
-}
-
-/* carousel indicators */
-.a1{
-    color: rgb(117, 117, 117);
-}
-
-
-
-
-
-/* seccion store */
-
-
-
-
-/* store seccion contenedor */
-.store-seccion{
-    padding-top: 90pt;
-}
-
-/* contenedor con imagenes de los productos */
-.cont-productos{
-    width: 50%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 30px;
-}
-
-/* efecto scale hover para los artículos */
-.capamover-efect{
-    transition: 0.3s;
-    height: 100px;
-    width: 100px; 
-    padding:5px;
-    cursor: pointer;
-}
-.capamover-efect:hover{
-    transform: scale(1.5);    
-}
-
-/* texto debajo de productos */
-.m1{
-    margin-top: 50px;
-}
-/* estilos para la cesta de compras */
-.cesta{
-    height: 50%;
-    width: 50%;
-    margin: 20px;
-    transition: 0.5s; 
-}
-.cesta1{
-    transform: scale(1.3);
-    transition: 0.5s;
-}
-
-/* contenedor de detalles de lista compra */
-.listacompra{
-    margin-top: 10px;
-}
-/* clase para p que reciben info de productos */
-.receptor{
-   height: 40pt; 
-   text-align: center;
-}
-
-/* estilos para botones creados con JS en lista de compras */
-#B0,#B1,#B2,#B3,#B4,#B5{
-    float: right;
-
-}
-
-/* estilo para los contenedores de producto agregado a lista de compras */
- #producto0,#producto1,#producto2,#producto3,#producto4,#producto5{
-     margin:10px;
-     height: 30pt;
-
- }
-
-
-
-
- /* formulario de compra */
-
-
-
-/* margen para seccion */
-.formulario{
-    margin-top: 60pt;
-}
-
-/* clase para input de formulario */
-.input{
-    float: right;
-    border: 0.5px solid gray;
-    box-shadow: 5px 5px 5px 1px rgb(108, 119, 126);
-}
-
-/* divisor que muestra total de compra */
-.total{
-    width: 50px;
-    float: left;
-    font-size: 12pt;
-}
-
-
-
-
-/* seccion explicacion */
-
-
-
-/* foto card */
-.foto1{
-    height: 100%;
-    width: 80%;
-    padding-left:20%;
-}
-.boton3{
-    padding:5pt;
-    margin-bottom: 40pt;
-    float: left;
-}
-.boton4{
-    padding:5pt;
-    margin-bottom: 40pt;
-    float: right;
-}
-.titulo-expl{
-    margin-top: 60pt;
-    margin-bottom: 40pt;
-}
-.card-footer{
-    text-align: center;
-}
-
-
-
-
-/* footer */
-
-
-/* estilos para footer */
-footer{
-    margin-top: 20pt;
-    background-color: rgba(12, 4, 43, 0.39);
-    height: 50px;
-    text-align: center;
-    padding-top:20px;
+.tarjeta-body p,
+li {
+  font-size: 0.625rem;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  list-style-position: inside;
 } 
 
-footer p{
-    font-size: 12px;
-    color: white;
+.tarjeta-footer{
+  border-top:0.1px solid rgb(126, 125, 125);
+  text-align: center;
 }
-footer a{
-    font-size: 50px;
+.tarjeta-footer p{
+  font-size: .7rem;
 }
 
+/********************************************** FOOTER **************************/
 
+footer {
+  background-color: rgb(199, 196, 196);
+  height: 100px;
+  padding-top: 30px;
+  text-align: center;
+  margin-top: 30pt;
+  font-size: 8pt;
+  color: rgb(105, 105, 105);
+}
 
-@media all and (min-width:575px){
-    
-/*textos descriptivos hidden para mobile*/
-.DH{
+footer i {
+  font-size: 20pt;
+  margin-top: 10px;
+  color: rgb(105, 105, 105);
+}
+
+/************************************ ESTILOS TABLET***************************/
+
+@media all and (min-width: 767px) {
+  .cont-productos {
+    width: 50%;
+    padding-left: 15%;
+  }
+
+  .cont-cesta {
+    width: 50%;
+    padding-left: 20%;
+    padding-top: 20%;
+  }
+}
+
+/******************************************* ESTILOS DESKTOP ******************/
+
+@media screen and (min-width: 800px) {
+  .menu-bar-pc {
+    display: flex;
+  }
+
+  .menu-bar-movil {
     display: none;
+  }
+
+  .cont-productos > p {
+    display: inline;
+    width: 60%;
+  }
+
+  .contenedor-descripcion {
+    display: inline;
+    width: 20%;
+    margin-top: 80pt;
+  }
+
+  .titulo-descripcion {
+    padding-top: 120px;
+    margin-bottom: 150px;
+  }
+
+  /* imagen cesta de compra (droppable) */
+  #receptor {
+    display: inline;
+  }
+
+  .cont-productos {
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+  }
+
+  /* imagenes de productos */
+  .capamover-efect {
+    height: 80px;
+    width: 80px;
+    margin: 5pt;
+    transition: 0.3s ease;
+  }
+
+  /* efecto scale para imagenes de productos */
+  .capamover-efect:hover {
+    cursor: pointer;
+    transform: scale(1.4);
+  }
+
+  .cont-cesta {
+    width: 40%;
+    padding-top: 0%;
+    padding-left: 5%;
+  }
+
+  .cont-cesta img {
+    transition: 0.3s ease;
+    box-shadow: 6px 6px 6px rgb(158, 158, 158);
+  }
+
+  .cesta1 {
+    transform: scale(1.3);
+  }
+
+  #mi-compra {
+    margin-top: 20pt;
+  }
+
+  /* contenedores con detalle de compra */
+  /* creados con JavaScript */
+  #producto0,
+  #producto1,
+  #producto2,
+  #producto3,
+  #producto4,
+  #producto5 {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  /* botones */
+
+  #B0,
+  #B1,
+  #B2,
+  #B3,
+  #B4,
+  #B5 {
+    float: right;
+  }
+
+  /* botones agregar */
+  /* ocultos para desktop */
+  .DH {
+    display: none;
+  }
+
+  /* adapta texto para body seccion explicacion */
+  .tarjeta-body p,
+  li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    list-style-position: inside;
+  }
 }
-}
-
-
-
-
-
-@media all and (max-width:360px){
-
-
-
-    /* navbar */
-    
-    /* logo navbar izq */
-    .logo-bio{
-        height: 30px;
-        width: 30px;
-    }
-    
-    
-    /* titulo ppal navbar */
-    .titulo-navbar{
-        font-size: 25px;
-        font-family: 'East Sea Dokdo', cursive;
-    }
-    
-    
-    /* lista desplegable */
-    .lista-nav{
-        text-align: right;
-    }
-    
-    
-    /* barra navbar en gral */
-    .navbar-style{
-        background-color: white;
-    }
-    
-    
-    
-    
-    /* seccion store */
-    
-    
-    
-    
-    
-    /* store seccion contenedor */
-    .store-seccion{
-        padding-top: 110pt;
-    }
-    
-    /* contenedor con imagenes de los productos */
-    .cont-productos{
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: space-between;
-    
-    
-    }
-    
-    /* texto hidden descriptivo para mobile*/
-    .DH{
-        width: 150px;
-        height: auto;
-        text-align: center;
-        padding-top: 30px;
-        display: block;
-    }
-    
-    
-    
-    /* efecto scale hover para los artículos */
-    .capamover-efect{
-        height: auto;
-        width: 130px; 
-        cursor: pointer;
-    }
-    
-    /* texto debajo de productos */
-    .m1{
-        display: none;
-    }
-    /* estilos para la cesta de compras */
-    .cesta{
-        display: none;
-    }    
-    /* contenedor de detalles de lista compra */
-    .listacompra{
-        margin-top: 10px;
-    }
-    
-    /*contenedor de los p q reciben info de productos*/
-    #d-p{
-        display: none;
-    }
-    
-    /* estilos para botones creados con JS en lista de compras */
-    #B0,#B1,#B2,#B3,#B4,#B5{
-        float: right;
-    
-    }
-    
-    /* estilo para los contenedores de producto agregado a lista de compras */
-     #producto0,#producto1,#producto2,#producto3,#producto4,#producto5{
-         margin:10px;
-         height: 30pt;
-    
-     }
-     /*checkboxes que desplegan capas*/
-    .lineaForm{
-        margin: 5px;
-        width: 100%; 
-    }
-    }
-
-
-
-

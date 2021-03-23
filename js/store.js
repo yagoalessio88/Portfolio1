@@ -1,7 +1,3 @@
-(function(){
-
-
-
 //Productos
 const productos = [
     {nombre:"Lechuga", precio:1.00, descripcion:"Variedad de estación."},
@@ -14,7 +10,39 @@ const productos = [
 
 
 
+
+
+
+
+/////drag and drop elements
+
+
+//Definimos elementos de tipo Draggable (productos)
+
+new Draggable('capa0',{revert:true});
+new Draggable('capa1',{revert:true});
+new Draggable('capa2',{revert:true});
+new Draggable('capa3',{revert:true});
+new Draggable('capa4',{revert:true});
+new Draggable('capa5',{revert:true}); 
+
+ //Definimos capa receptora (cesta de compra)
+Droppables.add('receptor', {
+    accept: 'capamover',
+    hoverclass: 'cesta1',
+    onDrop: function(arrastrado){
+        //al hacer drop de un producto sobre la cesta llamamos
+        //a la función que agregará la información de dicho 
+        //priducto a nuestra lista de compra
+        //propiedadesStore.productoId=arrastrado.id;
+        methStore.agregaProducto(arrastrado.id);
+
+    }
+}); 
+
+
 var propiedadesStore = {
+
     productosImag: document.querySelectorAll('.capamover'),
 
     botonesAgrega: document.querySelectorAll('.botonAgrega'),
@@ -26,18 +54,19 @@ var propiedadesStore = {
 var methStore = {
 
     inicio: function(){
-        //ciclo forEach que crea event listeners para cada elemento en 
+        //ciclo forEach que crea event listeners para cada elemento 
         //almacenado en productoImag
         propiedadesStore.productosImag.forEach(producto => {
-        producto.addEventListener('mouseover', methStore.describeProducto)
+        producto.addEventListener('mouseover', methStore.describeProducto);
 
-        producto.addEventListener('mouseout',methStore.borraDescripcion)
+        producto.addEventListener('mouseout',methStore.borraDescripcion);
+        });
+
+        propiedadesStore.botonesAgrega.forEach(boton=>{
+            boton.addEventListener('click',function(){
+                methStore.agregaProducto(boton.id);
+            })
         })
-
-        propiedadesStore.botonesAgrega.forEach(boton => {
-            boton.addEventListener('touchend',methStore.agregaProducto)
-        })
-
     },
 
     describeProducto:function(){
@@ -63,25 +92,29 @@ var methStore = {
         $('d-p-p').innerHTML=" ";
     },
 
-    agregaProducto:function(id){
-
-    let i=id.charAt(4);
+    agregaProducto:function(id){ 
+    //funcion que agrega producto y detalles a la cesta de compras
+    
+    let i =id.charAt(4); //tomamos ultimo numero del id
     let cantidad=prompt("Que cantidad en kg deseas comprar? ej: 1.5kg, 0.5kg?","1"); //solicitamos cantidad al usuario
     let totalProd=parseInt(cantidad) * productos[i].precio; //calculamos el valor de la orden    
 
-    let agrProd=document.createElement('div');
-    agrProd.setAttribute('id','producto'+i);
-    let boton=document.createElement('input');
-    boton.type="button"; //asignamos el tipo botón
+    let agrProd=document.createElement('div'); //creamos contenedor para nuevo producto
+    agrProd.setAttribute('id','producto'+i); //agregamos id al contenedor 
+    let boton=document.createElement('input'); //creamos boton para eliminar el producto
+    boton.type="button"; //asignamos el tipo botón 
     boton.value="Eliminar"; //asignamos el value al botón
-    boton.setAttribute('id', 'B'+i); //asignamos un id único al botón compuesto de "B" mas index
-    boton.setAttribute('class', 'btn btn-danger'); //creamos clase para boton
-    boton.addEventListener('click', methStore.eliminarProducto);
+    boton.setAttribute('id', 'B'+i); //asignamos un id único al botón 
+    boton.setAttribute('class','rojo'); //asignamos clase para estilos al botón 
+    boton.addEventListener('click', methStore.eliminarProducto); //asignamos eventListener al botón
    
+    let texto = document.createElement('p'); //creamos parrafo    
+    texto.innerHTML=`${productos[i].nombre} x ${cantidad}kg   Total: ${totalProd}&euro;`;//agregamos texto con detalles de la orden
     
-    agrProd.innerHTML=`${productos[i].nombre} x ${cantidad}kg   Total: ${totalProd}&euro;`;//agregamos texto con detalles de la orden
+    agrProd.appendChild(texto);//asignamos el parrafo dentro del contenedor de producto
+    agrProd.appendChild(boton); //agregamos el botón dentro del contenedor de producto
     $('mi-compra').appendChild(agrProd); //agregamos el nuevo contenedor con la orden
-    agrProd.appendChild(boton); //agregamos el botón al divisor de la orden   
+       
     
     let totalComp=$('total'); //obtenemos contenedor que muestra valor total de la compra 
     let totalAct=parseFloat(totalComp.innerHTML.substring(6,11))+totalProd; //sumamos el valor total actual mas el del producto que se suma
@@ -89,11 +122,12 @@ var methStore = {
     }, 
 
     eliminarProducto:function(){
-    let i = this.id.charAt(1);
+    //funcion que elimina un producto de la cesta de compra
+    let i = this.id.charAt(1); //tomamos el numero dentro del id del contenedor
     let articulo=$(`producto${i}`);//obtenemos el id del contenedor 
     articulo.remove(); //removemos el contenedor
-    let busca=articulo.innerHTML.search("Total:");
-    let valor=parseFloat(articulo.innerHTML.substring(busca+6,busca+11));
+    let busca=articulo.innerHTML.search("Total:"); //buscamos la ubicacion del total dentro del texto 
+    let valor=parseFloat(articulo.innerHTML.substring(busca+6,busca+11)); //obtenemos el valor total actual de compra
     
     let totalComp=$('total'); //obtenemos contenedor que muestra valor total de la compra 
     let totalAct=parseFloat(totalComp.innerHTML.substring(6,11))-valor; //restamos del valor total el valor del producto que se elimina
@@ -109,31 +143,7 @@ methStore.inicio();
 
 
 
-/////drag and drop elements
 
 
-//Definimos elementos de tipo Draggable (productos)
 
-new Draggable('capa0',{revert:true});
-new Draggable('capa1',{revert:true});
-new Draggable('capa2',{revert:true});
-new Draggable('capa3',{revert:true});
-new Draggable('capa4',{revert:true});
-new Draggable('capa5',{revert:true}); 
-
- //Definimos capa receptora (cesta de compra)
-Droppables.add('receptor', {
-    accept: 'capamover',
-    hoverclass: 'cesta1',
-    onDrop: function(arrastrado) {
-        //al hacer drop de un producto sobre la cesta llamamos
-        //a la función que agregará la información de dicho 
-        //priducto a nuestra lista de compra
-        //propiedadesStore.productoId=arrastrado.id;
-        methStore.agregaProducto(arrastrado.id);
-        
-    }
-}); 
-
-}())
 

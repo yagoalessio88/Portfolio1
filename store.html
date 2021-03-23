@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-Bio Store</title>
-    <!--   bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
     <!-- prototype y scriptaculous -->
     <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
     <script src="http://script.aculo.us/scriptaculous.js"></script>    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    
    
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -21,124 +18,142 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-                    <!-- nav bar -->
-            <nav class="navbar fixed-top navbar-light navbar-expand-sm navbar-style">
-                <a class="navbar-brand font-weight-bold titulo-navbar"><img src="img/logo2.jpg"  class="d-inline-block align-top logo-bio"></a><span class="titulo-navbar">Mini Bio Store</span>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barranav" aria-controls="navbarTogglerDemo01" aria-expanded="false">
-                    <span class="navbar-toggler-icon float-right"></span>
-                </button>
-           <!--  link items collapse -->
-                <div class="collapse navbar-collapse" id="barranav">
-                    <ul class="navbar-nav ml-auto lista-nav">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
-                        <li class="nav-item"><a class="nav-link" href="explicacion.html">Explicación</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+        <!-- navbar -->
+        <div class="menu-bar-pc">
+            
+                <a href="#" class="logo">
+                    <img src="./img/logo2.jpg">
+                </a>
+                <h4 class="titulo-logo">Mini Bio Store</h4>
+            
+
+			<nav class="menu-principal">
+				<a href="index.html">Inicio</a>
+				<a href="store.html">Store</a>
+				<a href="explicacion.html">Explicación</a>
+			</nav>
+		</div>
+
+		<div class="menu-bar-movil" >
+			<a href="#" class="logo">
+				<img src="./img/logo2.jpg">
+            </a>
+            <h4 class="titulo-logo">Mini Bio Store</h4>
+            
+
+			<div class="burger-menu" id="burger_menu">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</div>
+
+			<div class="slideMenu" id="slideMenu">
+				<nav class="menu-principal">
+					<a href="index.html">Inicio</a>
+					<a href="store.html">Store</a>
+					<a href="explicacion.html">Explicación</a>
+				</nav>
+			</div>
+
+		</div>
     </header>
 
-    <main>
-        <div class="container-fluid main-contenedor">  <!--  contenedor principal -->
-            <!-- store section -->    
-            <div class="row store-seccion">
-                    
-                <!-- contenedor elementos draggables -->
-                <div id="" class="cont-productos col-md-3">
-                    <div id="capa0" class="capamover"><img src="img/pr1.jpg" class="capamover capamover-efect" ></div>
-                    <div class="DH"><p>Lechuga de estación. 1&euro; el Kg</p><input id="capa0" type="button" class="btn btn-primary botonAgrega" value="Agregar Producto"></div>
-                    <div id="capa1" class="capamover"><img src="img/pr2.jpg" class="capamover capamover-efect" ></div>
-                    <div class="DH"><p>Tomate fresco de la huerta. 2&euro; el Kg</p><input id="capa1" type="button" class="btn btn-primary botonAgrega" value="Agregar Producto"></div>
-                    <div id="capa2" class="capamover"><img src="img/pr3.jpg" class="capamover capamover-efect" ></div>
-                    <div class="DH"><p>Papa orgánica lavada. 1.50&euro; el Kg</p><input id="capa2" type="button" class="btn btn-primary botonAgrega" value="Agregar Producto"></div>
-                    <div id="capa3" class="capamover"><img src="img/pr4.jpg" class="capamover capamover-efect" ></div>
-                    <div class="DH"><p>Naranja para jugo. 2.50&euro; el Kg</p><input id="capa3" type="button" class="btn btn-primary botonAgrega" value="Agregar Producto"></div>
-                    <div id="capa4" class="capamover"><img src="img/pr5.jpg" class="capamover capamover-efect" ></div>
-                    <div class="DH"><p>Cebolla blanca. 2&euro; el Kg</p><input id="capa4" type="button" class="btn btn-primary botonAgrega" value="Agregar Producto"></div>
-                    <div id="capa5" class="capamover"><img src="img/pr6.jpg" class="capamover capamover-efect" ></div>
-                    <div class="DH"><p>Zanahoria orgánica. 1.45&euro; el Kg</p><input id="capa5" type="button" class="btn btn-primary botonAgrega" value="Agregar Producto"></div>
-                    <p class="receptor m1"> <small><u>Clickea</u> sobre un producto y arrastralo hacia la canasta!!&nbsp;&nbsp;&nbsp;</small><i class="fas fa-arrow-circle-right"></i></p>
-                </div>
+    <main id="main">
+    
+        <div class="contenedor"> <!-- seccion store -->
+                
+            <!-- contenedor elementos draggables -->
+            <div class="cont-productos">
+                <div id="capa0" class="capamover"><img src="img/pr1.jpg" class="capamover capamover-efect" ></div>
+                <div class="DH"><p>Lechuga de estación. 1&euro; el Kg</p><input id="capa0" type="button" class="btn btn-primary botonAgrega" value="Agregar"></div>
+                <div id="capa1" class="capamover"><img src="img/pr2.jpg" class="capamover-efect" ></div>
+                <div class="DH"><p>Tomate fresco de la huerta. 2&euro; el Kg</p><input id="capa1" type="button" class="btn btn-primary botonAgrega" value="Agregar"></div>
+                <div id="capa2" class="capamover"><img src="img/pr3.jpg" class="capamover-efect" ></div>
+                <div class="DH"><p>Papa orgánica lavada. 1.50&euro; el Kg</p><input id="capa2" type="button" class="btn btn-primary botonAgrega" value="Agregar"></div>
+                <div id="capa3" class="capamover"><img src="img/pr4.jpg" class="capamover-efect" ></div>
+                <div class="DH"><p>Naranja para jugo. 2.50&euro; el Kg</p><input id="capa3" type="button" class="btn btn-primary botonAgrega" value="Agregar"></div>
+                <div id="capa4" class="capamover"><img src="img/pr5.jpg" class="capamover-efect" ></div>
+                <div class="DH"><p>Cebolla blanca. 2&euro; el Kg</p><input id="capa4" type="button" class="btn btn-primary botonAgrega" value="Agregar"></div>
+                <div id="capa5" class="capamover"><img src="img/pr6.jpg" class="capamover-efect" ></div>
+                <div class="DH"><p>Zanahoria orgánica. 1.45&euro; el Kg</p><input id="capa5" type="button" class="btn btn-primary botonAgrega" value="Agregar"></div>
+                <p><small><u>Clickea</u> sobre un producto y arrastralo hacia la canasta!!&nbsp;&nbsp;&nbsp;</small><i class="fas fa-arrow-circle-right"></i></p>
+            </div>
 
-                <!-- descripcion de producto -->
-                <div id="d-p" class="col-md-3">
+            <!-- descripcion de producto -->
+            <div class="contenedor-descripcion" id="d-p">
+                <br><br>
+                <h5 id="d-p-n" ></h5>
+                <p  id="d-p-d"> <small>Posiciona el mouse sobre un producto para ver detalles</small></p>
+                <p  id="d-p-p"></p>
+                <br>
+            </div>
+
+            <div class="cont-cesta" >    <!-- cesta de compras -->
+                <div class="cesta"><img id="receptor" src="img/cesta1.jpg"></div>
+                <br>
+                
+                <div id="mi-compra"><h4>Tus productos:</h4></div><br>
+                <div class="total"><h4 id="total">Total:00.00&euro;</h4></div>
+                <a href="#formulario"><input type="button" id="B0" value="Procesar pedido"></a>
+                
+                
+            </div>
+        </div> 
+        <br><br><br>
+        <!--  formulario de pago -->
+        <div>
+            
+                <form id="formulario"> 
+                    <label class="label" for="nombre">Nombre y Apellido:</label>
+                    <input id="inputName" type="text" name="nombre" placeholder="Nombre y Apellido" onblur="verifica_nombre()"><br><br>
+
+                    <label class="label" for="calle">Dirección:</label>
+                    <input id="inputCalle" type="text" name="calle" placeholder="Calle" onblur="verifica_calle()">
                     <br><br>
-                    <h5 id="d-p-n" class="receptor"></h5>
-                    <p class="receptor" id="d-p-d"> <small>Posiciona el mouse sobre un producto para ver detalles</small></p>
-                    <p class="receptor" id="d-p-p"></p>
-                    <br>
-                </div>
 
-                <div class="col-md-6">    <!-- cesta de compras -->
-                    <div id="receptor"><img class="cesta box-shadow" src="img/cesta1.jpg"></div>
-                    <br>
-                    
-                    <div id="mi-compra"><h4>Tus productos:</h4></div><br>
-                    <div class="total"><h4 id="total">Total:00.00&euro;</h4></div>
-                    <a href="#formulario"><input type="button" class="btn btn-primary" id="B0" value="Procesar pedido"></a>
-                    
-                    
-                </div>
-            </div> 
-            <br><br><br>
-            <!--  formulario de pago -->
-            <div class="row formulario" id="formulario">
-                <div class="col-md-6 offset-md-3">
-                    <form>
-                        <label class="lineaForm" for="nombre">Nombre y Apellido:</label>
-                        <input class="lineaForm input" id="inputName" type="text" name="nombre" placeholder="Nombre y Apellido" onblur="verifica_nombre()"><br><br>
-
-                        <label class="lineaForm" for="calle">Dirección:</label>
-                        <input class="lineaForm input" id="inputCalle" type="text" name="calle" placeholder="Calle" onblur="verifica_calle()">
-                        <br><br>
-
-                        <label class="lineaForm" for="numero">Numero:</label>
-                        <input class="lineaForm input" type="number"><br><br>
+                    <label class="label" for="numero">Numero:</label>
+                    <input type="number"><br><br>
+                        
+                    <div><input type="radio" name="c1" id="c1" onclick="desplega_capa(1), oculta_capa(2)">Entrega a domicilio</div>
+                    <div><input type="radio" name="c1" id="c2" onclick="desplega_capa(2), oculta_capa(1)">Retiro en local</div>
+                    <br><br>
+                    <!--  desplegable opcion entrega a domicilio -->
+                    <div id="entrega-dom" style="display:none;">
+                        <label class="label" for="fecha">Fecha de entrega:</label>
+                        <input type="date" name="fecha" id="fecha" class="input"><br>
                             
-                        <div class="lineaForm"><input type="radio" name="c1" id="c1" onclick="desplega_capa(1), oculta_capa(2)">Entrega a domicilio</div>
-                        <div class="lineaForm"><input type="radio" name="c1" id="c2" onclick="desplega_capa(2), oculta_capa(1)">Retiro en local</div>
-                        <br><br>
-                        <!--  desplegable opcion entrega a domicilio -->
-                        <div id="entrega-dom" style="display:none;">
-                            <label for="fecha">Fecha de entrega:</label>
-                            <input type="date" name="fecha" id="fecha" class="input"><br>
-                                
-                            <label for="select">Horario de entrega:</label>
-                            <select name="horario" id="horario" class="input">
-                                    <option value="0">9-10hs</option>
-                                    <option value="1">10-11hs</option>
-                                    <option value="2">17-18hs</option>
-                                    <option value="3">18-19hs</option>
-                            </select><br><br>
-                            <input type="button" class="btn btn-primary" value="Enviar orden">
-                        </div>
-                        <!-- desplegable opcion retiro en local -->
-                        <div id="retira" style="display: none;">
-                            <h4>Te esperamos en nuestro local!!</h4><br>
-                            <ul>
-                                <li>Dirección: Guillem Tell 14.</li>
-                                <li>Horarios: de 9 a 11 y de 17 a 19hs.</li>
-                                <li>Dudas? Llamanos! tel.:455-5555</li>
-                            </ul>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.668267335839!2d2.146768515051659!3d41.40301007926277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2a196f8fca5%3A0x30ea844ce861b0c0!2sCarrer%20de%20Guillem%20Tell%2C%2014%2C%2008006%20Barcelona!5e0!3m2!1ses!2ses!4v1610198594605!5m2!1ses!2ses" width="300" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                        </div>
-                    </form>
-                </div>
-            </div>              
-        </div>
+                        <label class="label" for="select">Horario de entrega:</label>
+                        <select name="horario" id="horario" class="input">
+                                <option value="0">9-10hs</option>
+                                <option value="1">10-11hs</option>
+                                <option value="2">17-18hs</option>
+                                <option value="3">18-19hs</option>
+                        </select><br><br>
+                        <input type="button" class="btn btn-primary" value="Enviar orden">
+                    </div>
+                    <!-- desplegable opcion retiro en local -->
+                    <div id="retira" style="display: none;">
+                        <h4>Te esperamos en nuestro local!!</h4><br>
+                        <ul>
+                            <li>Dirección: Guillem Tell 14.</li>
+                            <li>Horarios: de 9 a 11 y de 17 a 19hs.</li>
+                            <li>Dudas? Llamanos! tel.:455-5555</li>
+                        </ul>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.668267335839!2d2.146768515051659!3d41.40301007926277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2a196f8fca5%3A0x30ea844ce861b0c0!2sCarrer%20de%20Guillem%20Tell%2C%2014%2C%2008006%20Barcelona!5e0!3m2!1ses!2ses!4v1610198594605!5m2!1ses!2ses" width="300" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </form>
+        </div>   
+                      
+        
     </main>
 
     <footer>
-        <div class="container footer">
-            <p>Portfolio web creado por Yago Agüero </p>
-            <a href="https://www.linkedin.com/in/yagoaguero-88"><i class="fab fa-linkedin icon"></i></a>
-            </div>
+        <p>Portfolio web creado por Yago Agüero </p>
+        <a href="https://www.linkedin.com/in/yagoaguero-88"><i class="fab fa-linkedin icon"></i></a>
+            
     </footer>
     
 
     <script type="text/javascript" src="js/store.js"></script>
-    <script type="text/javascript" src="js/form.js" ></script>   
+    <script type="text/javascript" src="js/form.js" ></script> 
+    <script type="text/javascript" src="js/menuMovil.js"></script>  
 </body> 
 </html>
